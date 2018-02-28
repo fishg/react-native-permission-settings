@@ -5,7 +5,7 @@ const { PermissionSettings } = NativeModules;
 class AndroidNotificationsPermission {
   
   areNotificationsEnabled() {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       PermissionSettings.areNotificationsEnabled((isEnable, error) => {
         if (error) {
           reject(error);
@@ -13,7 +13,7 @@ class AndroidNotificationsPermission {
           resolve(isEnable);
         }
       });
-    }),
+    })
   }
 }
 
