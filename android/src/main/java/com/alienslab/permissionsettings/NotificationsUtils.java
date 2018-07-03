@@ -19,17 +19,16 @@ public class NotificationsUtils {
 
     public static boolean isNotificationEnabled(Context context) {
 
-        AppOpsManager mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-
-        ApplicationInfo appInfo = context.getApplicationInfo();
-
-        String pkg = context.getApplicationContext().getPackageName();
-
-        int uid = appInfo.uid;
-
-        Class appOpsClass = null; /* Context.APP_OPS_MANAGER */
-
         try {
+            AppOpsManager mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+
+            ApplicationInfo appInfo = context.getApplicationInfo();
+
+            String pkg = context.getApplicationContext().getPackageName();
+
+            int uid = appInfo.uid;
+
+            Class appOpsClass = null; /* Context.APP_OPS_MANAGER */
 
             appOpsClass = Class.forName(AppOpsManager.class.getName());
 
@@ -40,15 +39,7 @@ public class NotificationsUtils {
 
             return ((int) checkOpNoThrowMethod.invoke(mAppOps, value, uid, pkg) == AppOpsManager.MODE_ALLOWED);
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
