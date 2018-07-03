@@ -1,6 +1,6 @@
 {
   "name": "@krazylabs/react-native-permission-settings",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Check if notifications are enabled from app settings",
   "main": "index.js",
   "repository": {
@@ -19,6 +19,8 @@
     "app"
   ],
   "author": "Bilal Shabbir",
-  "maintainers": ["Ian Brune"],
+  "maintainers": [
+    "Ian Brune"
+  ],
   "license": "ISC"
 }
