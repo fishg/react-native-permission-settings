@@ -1,6 +1,6 @@
 {
   "name": "@krazylabs/react-native-permission-settings",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Check if notifications are enabled from app settings",
   "main": "index.js",
   "repository": {
